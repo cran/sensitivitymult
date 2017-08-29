@@ -5,7 +5,7 @@
 \concept{Causal inference}
 \concept{Confidence interval}
 \title{
-Sensitivity Analysis for a Confidence Interval in a Full Match.
+Sensitivity Analysis for a Confidence Interval.
 }
 \description{
 Each matched set contains one treated

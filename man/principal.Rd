@@ -200,8 +200,7 @@ in an observational study of smoking and periondontal disease.  Annals of
 Applied Statistics, 10, 1447-1471. <doi:10.1214/16-AOAS942>
 
 Rosenbaum, P. R. (2017) Combining planned and discovered comparisons
-in observational studies.  Manuscript.  (The artcog example below
-is from this manuscript.)
+in observational studies.  Manuscript.
 
 Rosenbaum, P. R., & Rubin, D. B. (1985). The bias due to incomplete
 matching. Biometrics, 41, 103-116.
@@ -247,6 +246,30 @@ the small, univariate example for the mscorev() function.
 
 
 \examples{
+# Please READ the documentation for artcog, and in particular
+# the distinction between simulated and actual data.
+# The dontrun section refers to the acutal data and
+# reproduces results in Rosenbaum (2017).
+# The example immediately below uses the simulated data,
+# and is simply a numerical illustration.
+
+data(artcog)
+attach(artcog)
+
+# Randomization test using the first principal component of the simulated data.
+principal(cbind(words,wordsdelay,animals),arthritis,mset,w=1,apriori=TRUE,detail=TRUE)
+
+# Randomization test exploring a contrast of the first two principal components.
+principal(cbind(words,wordsdelay,animals),arthritis,mset,w=c(1,-.1),Scheffe=TRUE)
+
+# Sensitivity analysis using the first principal component of the simulated data.
+principal(cbind(words,wordsdelay,animals),arthritis,mset,w=1,gamma=1.2,apriori=TRUE)
+amplify(1.2,c(1.5,2))
+
+\dontrun{
+# For this illustration, obtain the actual data,
+# as described in the documentation for artcog.
+# An illustration from Rosenbaum (2017) follows.
 data(artcog)
 attach(artcog)
 # A randomization test using the first principal component for the three memory scores.
@@ -284,6 +307,7 @@ principal(cbind(words,wordsdelay,animals),arthritis,mset,w=c(1,0),gamma=1.25,Sch
 # slightly less sensitive than using the first component alone.
 principal(cbind(words,wordsdelay,animals),arthritis,mset,w=c(1,-.1),gamma=1.25,Scheffe =TRUE)
 detach(artcog)
+  }
 }
 
 \keyword{ htest }

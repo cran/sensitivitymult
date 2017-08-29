@@ -81,6 +81,11 @@ option: one planned comparison plus all possible comparisons.
 
 
 \examples{
+# Please READ the documentation for artcog, and in particular
+# the distinction between simulated and actual data.
+# The dontrun section refers to the acutal data and
+# reproduces results in Rosenbaum (2017).
+
 planScheffe(2,alpha=0.05)
 # Interpretation of this output follows.
 # Suppose there is a bivariate Normal outcome.  We specify
@@ -100,7 +105,10 @@ planScheffe(2,alpha=0.05)
 # w=c(1,0) gives the deviate for the first principal
 # component.  Exploring every w=c(w1,w2) gives the
 # deviates that are squared for comparison with 7.077.
-#
+
+\dontrun{
+# For this illustration, obtain the actual data,
+# as described in the documentation for artcog.
 # An illustration from Rosenbaum (2017) follows.
 data(artcog)
 attach(artcog)
@@ -119,6 +127,7 @@ detach(artcog)
 # Interpret gamma:
 amplify(1.396,c(2,3))
 amplify(1.4,c(2,3))
+  }
 }
 
 \keyword{ htest }
